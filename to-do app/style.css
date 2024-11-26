@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gilroy";
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: antiquewhite;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+body.dark-mode .delete {
+    background-color: #bb86fc;
+}
+
+body.dark-mode .delete:hover {
+    background-color: #7c4dff;
+}
+
+body.dark-mode button {
+    background-color: #bb86fc;
+    color: white;
+}
+
+body.dark-mode button:hover {
+    background-color: #7c4dff;
+}
+
+body.dark-mode .todos li {
+    color: white;
+    border: 1px solid #333;
+}
+
+/* Toggle Button Container */
+#theme-toggle-container {
+    position: absolute;
+    top: 0;
+    right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+/* Hide default checkbox */
+#theme-toggle {
+    display: none;
+}
+
+/* Toggle Label (Switch Background) */
+.toggle-label {
+    width: 50px;
+    height: 25px;
+    background-color: #ccc;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Toggle Ball (Switch Handle) */
+.toggle-ball {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2.5px;
+    left: 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Checked State (Dark Mode) */
+#theme-toggle:checked+.toggle-label {
+    background-color: #007bff;
+    /* Blue for active state */
+}
+
+#theme-toggle:checked+.toggle-label .toggle-ball {
+    transform: translateX(25px);
+    /* Move ball to the right */
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    border: 5px solid whitesmoke;
+    border-radius: 10px;
+    margin: auto;
+    padding: 20px;
+    max-height: auto;
+    position: relative;
+    background-color: antiquewhite;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+input,
+input:focus {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+}
+
+::placeholder {
+    color: #526c8e;
+}
+
+.todos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 130px);
+    grid-template-rows: repeat(2, minmax(130px, 1fr));
+    gap: 7rem;
+    height: 52%;
+    margin: 25px 0 0 0;
+    /* background-color: aqua; */
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.todos li {
+    position: relative;
+    width: 230px;
+    height: 200px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.delete {
+    cursor: pointer;
+    position: absolute;
+    top: 70%;
+    background-color: #007bff;
+    border: none;
+    padding: 4px 83px;
+    font-size: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.delete:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.delete:active {
+    background-color: #003f7f;
+    transform: translateY(0);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+}
+
+.delete:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    color: #666666;
+}
+
+.filtered {
+    display: none !important;
+}
+
+.task-date {
+    position: absolute;
+    top: 85%;
+    font-size: 0.8em;
+    color: #007bff;
+}
+
+.add button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 4px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin-top: 0.1em;
+}
+
+button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #003f7f;
+    transform: translateY(0);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+    color: #666666;
+}
+
+/* Dropdown styles */
+select {
+    background: rgba(16, 16, 16, 0.2);
+    padding: 5px;
+    font-size: 14px;
+    color: #090909;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    margin: 2px 0;
+    display: block;
+    width: 10%;
+}
+
+@media (max-width: 768px) {
+    .heading {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    input,
+    input:focus {
+        background: rgba(15, 15, 15, 0.2);
+        padding: 10px;
+        font-size: 14px;
+        outline: none;
+        border: none;
+    }
+
+    .todos {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 100px);
+        grid-template-rows: none;
+        padding-left: 11.2vw;
+        padding-top: 7vh;
+    }
+
+    label {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .delete {
+        padding: 6px 86px;
+        /* Slightly smaller padding */
+        font-size: 14px;
+        top: 68%;
+
+    }
+
+    .task-date {
+        left: 1.2rem;
+    }
+}

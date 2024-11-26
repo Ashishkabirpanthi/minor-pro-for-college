@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to-do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1 class="heading">Todo List</h1>
+            <form class="search">
+                <input type="text" name="search" placeholder="Search your added todos" />
+            </form>
+            <div id="theme-toggle-container">
+                <input type="checkbox" id="theme-toggle" />
+                <label for="theme-toggle" class="toggle-label">
+                    <span class="toggle-ball"></span>
+                </label>
+            </div>
+        </header>
+        <ul class="todos">
+            
+        </ul>
+
+        <form class="add" name="addfrm">
+            <label>Add a new todo...</label>
+            <input type="text" name="add" placeholder="Type something to add" />
+                <select name="priority">
+                  <option value="High">High Priority</option>
+                  <option value="Medium">Medium Priority</option>
+                  <option value="Low" selected>Low Priority</option>
+                </select>
+            <button type="submit">Add Task</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
