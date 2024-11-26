@@ -3,13 +3,11 @@ let text = addFrm.add;
 let priorityDropdown = addFrm.priority;
 let ul = document.querySelector(".todos");
 
-// Load tasks from localStorage on page load
 let loadTasks = () => {
   let savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
   savedTasks.forEach((task) => addItem(task.item, task.priority, task.date));
 };
 
-// Save tasks to localStorage
 let saveTasks = () => {
   let listItems = Array.from(ul.children).map((li) => {
     return {
@@ -20,19 +18,16 @@ let saveTasks = () => {
   });
   localStorage.setItem("tasks", JSON.stringify(listItems));
 };
-
-// Add task to the list
 let addItem = (item, priority, date = null) => {
   let currentDate = date || new Date().toLocaleString();
 
-  // Define colors for each priority
   let priorityColors = {
-    High: "rgb(255,66,38)", // Red for high priority
-    Medium: "rgba(255, 215, 0, 0.8)", // Yellow for medium priority
-    Low: "rgba(144, 238, 144, 0.8)", // Green for low priority
+    High: "rgb(255,66,38)",
+    Medium: "rgba(255, 215, 0, 0.8)",
+    Low: "rgba(144, 238, 144, 0.8)",
   };
 
-  let color = priorityColors[priority]; // Get the color based on priority
+  let color = priorityColors[priority];
 
   let str = `<li data-priority="${priority}" style="background-color: ${color};">
       <span>${item}</span>
@@ -41,10 +36,9 @@ let addItem = (item, priority, date = null) => {
     </li>`;
   ul.innerHTML += str;
 
-  saveTasks(); // Save tasks after adding
+  saveTasks();
 };
 
-// Event listener for adding tasks
 addFrm.addEventListener("submit", (e) => {
   e.preventDefault();
   let item = text.value;
@@ -55,15 +49,13 @@ addFrm.addEventListener("submit", (e) => {
   }
 });
 
-// Event listener for deleting tasks
 ul.addEventListener("click", (e) => {
   if (e.target.nodeName === "P") {
     e.target.parentElement.remove();
-    saveTasks(); // Save tasks after deletion
+    saveTasks();
   }
 });
 
-// Search functionality
 let searchItem = (text) => {
   let listItems = ul.children;
   for (let li of listItems) {
@@ -78,22 +70,16 @@ searchText.addEventListener("keyup", (e) => {
   searchItem(searchText.value.toLowerCase());
 });
 
-// Dark mode toggle
 let toggleButton = document.getElementById("theme-toggle");
 
-// Check for saved theme in localStorage
 let isDarkMode = localStorage.getItem("darkMode") === "true";
 if (isDarkMode) {
   document.body.classList.add("dark-mode");
 }
 
-// Toggle dark mode on button click
 toggleButton.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
-  // Save the current theme preference to localStorage
   let isDarkMode = document.body.classList.contains("dark-mode");
   localStorage.setItem("darkMode", isDarkMode);
-});
-
-// Load tasks on page load
+})
 loadTasks();

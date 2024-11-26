@@ -13,7 +13,6 @@ body {
     background-color: antiquewhite;
 }
 
-/* Dark Mode Styles */
 body.dark-mode {
     background-color: #121212;
     color: white;
@@ -53,7 +52,6 @@ body.dark-mode .todos li {
     border: 1px solid #333;
 }
 
-/* Toggle Button Container */
 #theme-toggle-container {
     position: absolute;
     top: 0;
@@ -62,12 +60,10 @@ body.dark-mode .todos li {
     align-items: center;
 }
 
-/* Hide default checkbox */
 #theme-toggle {
     display: none;
 }
 
-/* Toggle Label (Switch Background) */
 .toggle-label {
     width: 50px;
     height: 25px;
@@ -78,7 +74,6 @@ body.dark-mode .todos li {
     transition: background-color 0.3s ease;
 }
 
-/* Toggle Ball (Switch Handle) */
 .toggle-ball {
     width: 20px;
     height: 20px;
@@ -91,15 +86,12 @@ body.dark-mode .todos li {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Checked State (Dark Mode) */
 #theme-toggle:checked+.toggle-label {
     background-color: #007bff;
-    /* Blue for active state */
 }
 
 #theme-toggle:checked+.toggle-label .toggle-ball {
     transform: translateX(25px);
-    /* Move ball to the right */
 }
 
 .container {
@@ -141,7 +133,6 @@ input:focus {
     gap: 7rem;
     height: 52%;
     margin: 25px 0 0 0;
-    /* background-color: aqua; */
     overflow: auto;
     scrollbar-width: none;
 }
@@ -245,7 +236,6 @@ button:disabled {
     color: #666666;
 }
 
-/* Dropdown styles */
 select {
     background: rgba(16, 16, 16, 0.2);
     padding: 5px;
@@ -292,7 +282,6 @@ select {
 
     .delete {
         padding: 6px 86px;
-        /* Slightly smaller padding */
         font-size: 14px;
         top: 68%;
 
